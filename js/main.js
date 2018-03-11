@@ -1,25 +1,48 @@
 //document ready jquery
 $( document ).ready(function() {
 
-//set variables
-crystalOne = null;
-crystalTwo = null;
-crystalThree = null;
-crystalFour = null;
-
 //random number at start of game
 let randomNumber = Math.floor((Math.random() * 100) + 1);
 
 //output random number to html
 $("#random-number").text(randomNumber);
 
-//each crystal will have a specific number value
-let crystalValue = function(w, x, y, z) {
-    Math.floor((Math.random() * 100) + 1);
-}
-console.log(crystalValue);
+//define crystals
+//each crystal will have a random number value
+let crystalOne = {
+        'name': 'amethyst',
+        'value': Math.floor((Math.random() * 10) + 1),
+    };
+    let crystalTwo = {
+        'name': 'labradorite',
+        'value': Math.floor((Math.random() * 20) + 1),
+    };
+    let crystalThree = {
+        'name': 'opal',
+        'value': Math.floor((Math.random() * 10) + 1), 
+    };
+    let crystalFour = {
+        'name': 'rose quartz',
+        'value': Math.floor((Math.random() * 30) + 1), 
+    };
 
 //on click of crystal, that value will make the random # go down
+$("#crystal1").on('click', function() {
+    randomNumber -= crystalOne.value
+    $("#random-number").text(randomNumber);
+});
+$("#crystal2").on('click', function() {
+    randomNumber -= crystalTwo.value
+    $("#random-number").text(randomNumber);
+});
+$("#crystal3").on('click', function() {
+    randomNumber -= crystalThree.value
+    $("#random-number").text(randomNumber);
+});
+$("#crystal4").on('click', function() {
+    randomNumber -= crystalFour.value
+    $("#random-number").text(randomNumber);
+});
 
 //define wins
 
@@ -41,28 +64,5 @@ let gameLosses = 0;
 
 
 
-//let crystalOne = {
-    //     'name': 'amethyst',
-    //     'value': function crystalValue() {
-    //         this.Math.floor((Math.random() * 100) + 1);
-    //     }, 
-    // };
-    // let crystalTwo = {
-    //     'name': 'labradorite',
-    //     'value': function crystalValue() {
-    //         this.Math.floor((Math.random() * 100) + 1);
-    //     }, 
-    // };
-    // let crystalThree = {
-    //     'name': 'opal',
-    //     'value': function crystalValue() {
-    //         this.Math.floor((Math.random() * 100) + 1);
-    //     },  
-    // };
-    // let crystalFour = {
-    //     'name': 'rose quartz',
-    //     'value': function crystalValue() {
-    //         this.Math.floor((Math.random() * 100) + 1);
-    //     },  
-    // };
+
     
