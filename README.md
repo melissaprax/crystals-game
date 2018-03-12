@@ -1,1 +1,1 @@
-# starwars-game
+# crystals-game
