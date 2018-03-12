@@ -5,7 +5,7 @@ $( document ).ready(function() {
 let randomNumber = Math.floor((Math.random() * 100) + 1);
 
 //output random number to html
-$("#random-number").text(randomNumber);
+let outPut = $("#random-number").text(randomNumber);
 
 //define crystals
 //each crystal will have a random number value
@@ -27,21 +27,57 @@ let crystalOne = {
     };
 
 //on click of crystal, that value will make the random # go down
+
 $("#crystal1").on('click', function() {
     randomNumber -= crystalOne.value
     $("#random-number").text(randomNumber);
+
+    //wins go up if number is matched
+    if (randomNumber === 0) {
+        gameWins++;
+        $("#wins").html(gameWins);
+    }
+    //losses go up if it's not
+    if (randomNumber < 0) {
+        gameLosses++;
+        $("#wins").html(gameLosses);
+    }
 });
 $("#crystal2").on('click', function() {
     randomNumber -= crystalTwo.value
     $("#random-number").text(randomNumber);
+    if (randomNumber === 0) {
+        gameWins++;
+        $("#wins").html(gameWins);
+    }
+    if (randomNumber < 0) {
+        gameLosses++;
+        $("#wins").html(gameLosses);
+    }
 });
 $("#crystal3").on('click', function() {
     randomNumber -= crystalThree.value
     $("#random-number").text(randomNumber);
+    if (randomNumber === 0) {
+        gameWins++;
+        $("#wins").html(gameWins);
+    }
+    if (randomNumber < 0) {
+        gameLosses++;
+        $("#wins").html(gameLosses);
+    }
 });
 $("#crystal4").on('click', function() {
     randomNumber -= crystalFour.value
     $("#random-number").text(randomNumber);
+    if (randomNumber === 0) {
+        gameWins++;
+        $("#wins").html(gameWins);
+    }
+    if (randomNumber < 0) {
+        gameLosses++;
+        $("#wins").html(gameLosses);
+    }
 });
 
 //define wins
@@ -52,12 +88,13 @@ let gameWins = 0;
 
 let gameLosses = 0;
 
-//wins go up if number is matched
-
-//losses go up if it's not
-
 //if a win or loss occurs, game resets
 //game reset changes value of crystals
+let restartGame = function() {
+    if (gameWins >= 1 || gameLosses >= 1) {
+    randomNumber = Math.floor((Math.random() * 100) + 1);
+    outPut = $("#random-number").text(randomNumber);
+}}
 
 //closes up document ready
 });
